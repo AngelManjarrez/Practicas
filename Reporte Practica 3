@@ -1,0 +1,8 @@
+Introducción
+Este programa tiene como objetivo generar todas las combinaciones posibles de letras que corresponden a una secuencia de dígitos ingresada por el usuario
+utilizando un mapeo similar al de un teclado de teléfono móvil. Cada número del 2 al 9 en el teclado está asociado con un conjunto de letras 
+
+Objetivos del Código
+El objetivo principal del código es leer una secuencia de dígitos del 2 al 9 ingresados ​​por el usuario y generar todas las combinaciones posibles de letras que corresponden a esos dígitos
+utilizando el esquema de letras asociado a cada número en un teclado de teléfono (por ejemplo, 2 → "abc", 3 → "def", etc.).
+El programa debe mostrar todas las combinaciones generadas y manejar correctamente la entrada y la generación de combinaciones.
