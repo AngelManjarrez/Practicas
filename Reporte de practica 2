@@ -1,0 +1,10 @@
+Introdduccion:
+programa implementa una operación de división entre dos números enteros, sin utilizar el operador de división convencional (`/`). En su lugar, 
+el programa utiliza una serie de desplazamientos de bits y restas sucesivas para obtener el conocimiento de la división. Además, el código se maneja de manera especial el caso de la división 
+que involucra los límites extremos de los enteros, como la división del valor mínimo posible de un entero en C.
+
+
+Objetivo:
+Es dividir dos números enteros (`numero` y `divisor`) y obtener el conocimiento de la operación sin usar el operador de división. A lo largo del código
+se implementan diversas optimizaciones y verificaciones para asegurar la correcta ejecución de la división
+teniendo en cuenta las limitaciones del sistema y las posibles excepciones, como la división por 0 o el manejo de los límites de los valores enteros.
