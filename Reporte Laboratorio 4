@@ -1,0 +1,56 @@
+Objetivo del Código:
+El objetivo principal de este programa es calcular la "química" de un conjunto de jugadores, donde cada jugador tiene una habilidad representada por un valor numérico
+Los jugadores deben ser organizados en equipos de dos, y el código evalúa la química de cada equipo y la suma total de la química de todos los equipos.
+La química de un equipo se calcula como el producto de las habilidades de los dos jugadores que lo conforman.
+
+Ingreso de datos :
+El programa solicita al usuario que ingrese el número de jugadores, el cual debe ser un número par. 
+Si el número ingresado es impar, el programa muestra "-1" y termina.
+Luego, el programa pide las habilidades de los jugadores, las cuales se almacenan en un arreglo skill.
+
+
+
+Descripción de las Funciones y Componentes del Código:
+
+Propósito : Esta función se usa para comparar dos enteros, lo cual es necesario para ordenar el arreglo de habilidades de los jugadores usando la función qsortde la biblioteca estándar de C.
+const void *a: Puntero al primer entero a comparar.
+const void *b: Puntero al segundo entero a comparar.
+La función convierte los punteros ay ba enteros y devuelve la diferencia entre ellos, lo que es útil para ordenar los valores en orden ascendente.
+
+FunciónteamChemistry :
+Propósito : Calcula la química total de los equipos formados a partir de las habilidades de los jugadores.
+int *skill: Puntero a un arreglo que contiene las habilidades de los jugadores.
+int size: Tamaño del arreglo de habilidades.
+Verificación de tamaño par : Si el tamaño del arreglo no es par, se retorna -1, indicando que no es posible formar equipos de dos jugadores.
+Ordenación : Se ordena el arreglo skillen orden ascendente utilizando qsort.
+Cálculo de equipos : Se forma un equipo tomando al jugador con la habilidad más baja y el de la habilidad más alta, repitiendo este proceso hasta que se hayan formado todos los equipos.
+Suma esperada : Se calcula la suma esperada de la habilidad de cada equipo como la suma del jugador más débil y el más fuerte.
+Cálculo de química : Si la suma de las habilidades de un equipo no es la esperada, la función devuelve -1. Si todas las sumas coinciden, calcula la química total sumando el producto de las habilidades de cada pareja.
+Salida : Se imprime información sobre los equipos formados y la química total de todos los equipos.
+
+
+
+Proceso de Ejecución del Programa:
+
+La función teamChemistryse encarga de calcular la química de los equipos. Primero verifica que el tamaño del arreglo sea par. Luego ordena el arreglo de habilidades y forma los equipos.
+Para cada equipo, se verifica si la suma de las habilidades de los dos jugadores coincide con la suma esperada (la habilidad del jugador más débil más la habilidad del jugador más fuerte). Si no coinciden, el programa devuelve -1.
+Si la suma es correcta, se calcula la química de cada equipo como el producto de las habilidades de los jugadores en ese equipo.
+Salida del Programa :
+Si todo es correcto, el programa muestra los equipos formados y la suma total de la química de los equipos.
+Si ocurre algún error (por ejemplo, el número de jugadores es impar o las sumas no coinciden), el programa retorna -1.
+
+
+Ejemplo de ejecución :
+
+
+Ingrese la cantidad de jugadores (debe ser un número par): 6
+Ingrese las habilidades de los jugadores:
+1 3 5 7 9 11
+
+
+Equipos formados:
+Equipo 1: (1, 11)
+Equipo 2: (3, 9)
+Equipo 3: (5, 7)
+
+Suma total de la química de los equipos: 105
