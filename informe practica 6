@@ -1,0 +1,94 @@
+Informe Técnico: Mínimo Número de Términos de Fibonacci No Consecutivos que Sumen un Valor K
+1. Introducción
+Este informe presenta el desarrollo e implementación de un algoritmo que determina el mínimo número de términos no consecutivos de la sucesión de Fibonacci, 
+cuya suma es exactamente igual a un valor K, calculado a partir de una fecha de nacimiento.
+La solución emplea una estrategia voraz sobre una secuencia de Fibonacci modificada, omitiendo los términos en posiciones de índice primo.
+
+
+
+
+2. Cálculo de K
+El valor K es determinado dinámicamente con base en una fecha de nacimiento, siguiendo la fórmula:
+
+K = (día * 100) + (mes * 10) + (año % 100)
+Por ejemplo, para la fecha 25/12/1995:
+
+
+K = 25 * 100 + 12 * 10 + 95 = 2715
+
+
+
+3. Generación de la Sucesión de Fibonacci Filtrada
+Se genera la sucesión de Fibonacci hasta que el último término no supere el valor de K. No obstante, 
+se omiten los términos que ocupan posiciones primas en la secuencia. Esto se logra mediante una función 
+que verifica la primalidad de la posición antes de añadir el término al arreglo final.
+
+Por ejemplo, la secuencia generada (filtrada) para K = 2715 es:
+
+0, 1, 1, 8, 21, 144, 377, 987, 2584
+Los términos en posiciones 3, 5, 7, 11, etc., fueron excluidos.
+
+
+
+
+
+4. Algoritmo de Selección Óptima
+Se aplica una estrategia voraz (greedy), seleccionando siempre el término de Fibonacci más grande posible (dentro del filtrado) 
+que no exceda el valor restante de K. Luego, ese valor se resta de K y se continúa el proceso, omitiendo el siguiente término en la secuencia 
+para evitar consecutividad directa.
+
+Ejemplo para K = 2715:
+
+Selecciona 2584 → K = 131
+
+Selecciona 144 → se omite porque excede 131
+
+Selecciona 21 → K = 110
+
+Selecciona 1 → K = 109
+
+Selecciona 1 → K = 108 → proceso continúa
+
+La suma de estos términos da exactamente K, y se logra con la menor cantidad de sumandos no consecutivos.
+
+
+
+
+
+5. Justificación de la Estrategia Voraz
+Este enfoque es óptimo bajo las restricciones del problema porque:
+Los términos de Fibonacci crecen exponencialmente, por lo que usar los más grandes reduce el número total de términos requeridos.
+La omisión de consecutivos es respetada al saltarse índices en cada iteración.
+Este algoritmo es una extensión del Teorema de Zeckendorf, el cual establece que cualquier número entero positivo se puede representar 
+de manera única como la suma de términos no consecutivos de la sucesión de Fibonacci.
+
+
+
+
+6. Complejidad Computacional
+Tiempo:
+Generación de la secuencia de Fibonacci filtrada: O(log K), ya que el número de términos de Fibonacci hasta K es logarítmico.
+Selección de términos: En el peor caso, recorre cada término filtrado una sola vez → O(log K)
+Espacio:
+El espacio utilizado es proporcional al número de términos generados → O(log K)
+
+Por tanto, la complejidad total es O(log K) en tiempo y espacio.
+
+
+
+
+
+
+7. Implementación en C
+El algoritmo fue implementado en lenguaje C por su eficiencia y control sobre estructuras de datos. Se evita el uso de bibliotecas externas,
+y todo el control de flujo se mantiene simple y optimizado. El código incluye estructuras básicas: arreglos, ciclos while, y funciones auxiliares
+para el filtrado y la estrategia de selección.
+
+
+
+
+8. Conclusión
+Este proyecto demuestra cómo un problema matemático puede resolverse de manera eficiente combinando conocimiento de teoría de números
+(números primos y sucesión de Fibonacci), estructuras algorítmicas (estrategia voraz), y programación optimizada en lenguaje C.
+La implementación es efectiva y su rendimiento es adecuado incluso para valores de K relativamente grandes, gracias a su complejidad logarítmica.
+
